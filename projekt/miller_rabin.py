@@ -70,6 +70,8 @@ def miillerTest(d, n):
 # accuracy level. Higher value of
 # k indicates more accuracy.
 def isPrime(n, k):
+
+    steps = []
     # Corner cases
     if (n <= 1 or n == 4):
         return False;
@@ -85,19 +87,30 @@ def isPrime(n, k):
     # Iterate given number of 'k' times
     for i in range(k):
         if (miillerTest(d, n) == False):
-            return False;
+            return False, steps;
 
-    return True;
+    return True, steps;
 
 
 # Driver Code
 # Number of iterations
-k = 4;
+# k = 100;
 
-print("All primes smaller than 100: ");
-for n in range(1, 100):
-    if (isPrime(n, k)):
-        print(n, end=" ");
+# print("All primes smaller than 100: ");
+# for n in range(1, 100):
+#     if (isPrime(n, k)):
+#         print(n, end=" ");
 
 # This code is contributed by mits
+#
+# n = 99
+# print(isPrime(n, k))
 
+def get_15_numbers():
+    numbers = []
+    for i in range(15):
+        numbers.append(random.randint(1, 1000))
+
+    result = random.randint(0, 1)
+
+    return bool(result), numbers
