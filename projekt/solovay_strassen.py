@@ -9,7 +9,7 @@ def jacobi_symbol(a, n):
         return jacobi_symbol(a // 2, n) * ((-1) ** ((n ** 2 - 1) // 8))
     else:
         return jacobi_symbol(n % a, a) * ((-1) ** ((a - 1) * (n - 1) // 4))
-def solovay_strassen(n, k, show_details):
+def solovay_strassen(n, k, show_details, a0 = -1):
 
     if n == 2 or n == 3:
         return True, ""
