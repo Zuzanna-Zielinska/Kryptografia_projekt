@@ -1,6 +1,7 @@
 import random
 import miller_rabin
 import solovay_strassen
+import time
 
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QGridLayout, QTextEdit, QWidget
@@ -85,6 +86,7 @@ class MainWindow(QMainWindow):
         self.insert_a_button = QPushButton("Wymuś pierwsze a:")
         self.insert_a_button.setVisible(False)
         self.insert_a_button.setCheckable(True)
+        # self.insert_a_button.setAlignment(Qt.AlignCenter)
         self.insert_a_button.clicked.connect(self.set_a)
 
         self.insert_a_input = QLineEdit()
@@ -131,7 +133,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.generate_from_input, 2, 3)
         layout.addWidget(self.generate_to_label, 3, 3)
         layout.addWidget(self.generate_to_input, 4, 3)
-        layout.addWidget(self.insert_a_button, 5, 3)
+        layout.addWidget(self.insert_a_button, 5, 3, alignment=Qt.AlignBottom)
         layout.addWidget(self.insert_a_input, 6, 3)
 
 
@@ -178,9 +180,7 @@ class MainWindow(QMainWindow):
         if t == "":
             self.generate_to_input.setText("1000000")
 
-        f_t = f < t
-
-        if not f_t:
+        if not f < t:
             self.generate_from_input.setText("1")
             self.generate_to_input.setText("1000000")
 
@@ -193,6 +193,8 @@ class MainWindow(QMainWindow):
         return num
 
     def test_number(self):
+
+        # start = time.time()
 
         if self.number_input.text() == "":
             self.number_input.setText(str(self.generate_number()))
@@ -217,6 +219,9 @@ class MainWindow(QMainWindow):
 
         self.show_steps(result_miller_rabin[1], result_solovay_strassen[1])
         self.show_result(result_miller_rabin[0], result_solovay_strassen[0])
+
+        # end = time.time()
+        # print(f"Time: {end - start}")
 
     def show_steps(self, steps_miller_rabin, steps_solovay_strassen):
 
