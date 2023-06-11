@@ -231,13 +231,13 @@ class MainWindow(QMainWindow):
     def show_result(self, result_miller_rabin, result_solovay_strassen):
 
         if result_miller_rabin:
-            self.results_miller.setText(f"Liczba jest pierwsza  z minimalnym \nprawdopodobieństwem "
+            self.results_miller.setText(f"Liczba jest pierwsza z minimalnym \nprawdopodobieństwem "
                                         f"{1 - 4**(-int(self.iteration_number_input.text()))}")
         else:
             self.results_miller.setText("Liczba jest złożona")
 
         if result_solovay_strassen:
-            self.results_solovay.setText(f"Liczba jest pierwsza  z minimalnym \nprawdopodobieństwem "
+            self.results_solovay.setText(f"Liczba jest pierwsza z minimalnym \nprawdopodobieństwem "
                                          f"{1 - 2**(-int(self.iteration_number_input.text()))}")
         else:
             self.results_solovay.setText("Liczba jest złożona")

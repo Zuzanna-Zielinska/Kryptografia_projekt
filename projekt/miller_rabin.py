@@ -47,13 +47,14 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
         s += 1
 
     d = n1
-    txt = txt + f"n-1 = 2^{s} * {d}\n"
+    if show_details:
+        txt = txt + f"n-1 = 2^{s} * {d}\n\n"
     # print(f"n-1 = 2^{s} * {d}")
 
 
 
     for i in range(k):
-        txt = txt + f"\nk = {i}\n------------------\n"
+        txt = txt + f"k = {i}\n------------------\n"
         # print(f"\nk = {i}\n------------------")
 
         a = random.randint(2, n - 2)
@@ -87,29 +88,33 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
             # print(f"y = {y} and x = {x}")
 
             if y == 1 and x != 1 and x != n - 1:
+                if show_details:
+                    txt = txt + f"\n{y} = 1 oraz {x} != 1 oraz {x} != {n-1}\n"
                 txt = txt + f"Liczba jest złożona\n"
                 return False, txt
             x = y
         if y != 1:
+            if show_details:
+                txt = txt + f"\n{y} != 1 \n"
             txt = txt + f"Liczba jest złożona\n"
             return False, txt
 
-        txt = txt + f"Liczba jest pierwsza\n"
+        txt = txt + f"Liczba jest pierwsza\n\n"
     return True, txt
 
 
 #19999
 
-# n = 19997
-# k = 4
-#
-# print(f"n = {n}")
-# result = miller(n, k, False, 5)
-#
-# if result[0]:
-#     print("prime")
-# else:
-#     print("composite")
-#
-# print(result[1])
+n = 9
+k = 4
+
+print(f"n = {n}")
+result = miller(n, k, True, 5)
+
+if result[0]:
+    print("prime")
+else:
+    print("composite")
+
+print(result[1])
 
