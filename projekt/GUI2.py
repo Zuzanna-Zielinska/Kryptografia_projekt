@@ -4,7 +4,8 @@ import solovay_strassen
 import time
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QGridLayout, QTextEdit, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, \
+    QPushButton, QGridLayout, QTextEdit, QWidget, QSizePolicy
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIntValidator
@@ -13,6 +14,8 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        # self.setGeometry(300, 300, 800, 550)
+        self.setMinimumSize(800, 550)
         self.show_details = False
         self.a = -1
         self.force_a = False
@@ -55,10 +58,12 @@ class MainWindow(QMainWindow):
         self.solovay_steps = QTextEdit()
         self.solovay_steps.setReadOnly(True)
         self.solovay_steps.setLineWrapMode(QTextEdit.WidgetWidth)
+        self.solovay_steps.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         self.miller_steps = QTextEdit()
         self.miller_steps.setReadOnly(True)
         self.miller_steps.setLineWrapMode(QTextEdit.WidgetWidth)
+        self.miller_steps.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         self.results_solovay = QLabel()
         self.results_solovay.setAlignment(Qt.AlignCenter)  # Wyśrodkowanie tekstu
@@ -75,6 +80,7 @@ class MainWindow(QMainWindow):
         self.generate_from_input.setVisible(False)
         self.generate_from_input.setText("1")
         self.generate_from_input.setValidator(self.int_validator)
+        self.generate_from_input.setMaximumWidth(200)
 
         self.generate_to_label = QLabel("Wygeneruj liczbę do:")
         self.generate_to_label.setVisible(False)
@@ -82,6 +88,7 @@ class MainWindow(QMainWindow):
         self.generate_to_input.setVisible(False)
         self.generate_to_input.setText("1000000")
         self.generate_to_input.setValidator(self.int_validator)
+        self.generate_to_input.setMaximumWidth(200)
 
         self.insert_a_button = QPushButton("Wymuś pierwsze a:")
         self.insert_a_button.setVisible(False)
@@ -92,49 +99,50 @@ class MainWindow(QMainWindow):
         self.insert_a_input = QLineEdit()
         self.insert_a_input.setVisible(False)
         self.insert_a_input.setValidator(self.int_validator)
+        self.insert_a_input.setMaximumWidth(200)
 
 
 
 
         row_num = 0
         layout = QGridLayout()
-        layout.addWidget(self.title_label, row_num, 0, 1, 3)
+        layout.addWidget(self.title_label, row_num, 0, 1, 4)
         row_num += 1
 
         layout.addWidget(self.number_label, row_num, 0)
-        layout.addWidget(self.number_input, row_num, 1)
-        layout.addWidget(self.generate_button, row_num, 2)
+        layout.addWidget(self.number_input, row_num, 1, 1, 2)
+        layout.addWidget(self.generate_button, row_num, 3)
         row_num += 1
 
         layout.addWidget(self.iteration_number_label, row_num, 0)
-        layout.addWidget(self.iteration_number_input, row_num, 1)
-        layout.addWidget(self.details_button, row_num, 2)
+        layout.addWidget(self.iteration_number_input, row_num, 1, 1, 2)
+        layout.addWidget(self.details_button, row_num, 3)
         row_num += 1
 
-        layout.addWidget(self.start_button, row_num, 0, 1, 3)
+        layout.addWidget(self.start_button, row_num, 0, 1, 4)
         row_num += 1
 
-        layout.addWidget(self.solovay_label, row_num, 0)
-        layout.addWidget(self.miller_label, row_num, 2)
+        layout.addWidget(self.solovay_label, row_num, 0, 1, 2)
+        layout.addWidget(self.miller_label, row_num, 2, 1, 2)
         row_num += 1
 
-        layout.addWidget(self.solovay_steps, row_num, 0)
-        layout.addWidget(self.miller_steps, row_num, 2)
+        layout.addWidget(self.solovay_steps, row_num, 0, 1, 2)
+        layout.addWidget(self.miller_steps, row_num, 2, 1, 2)
         row_num += 1
 
-        layout.addWidget(self.results_solovay, row_num, 0)
-        layout.addWidget(self.results_miller, row_num, 2)
+        layout.addWidget(self.results_solovay, row_num, 0, 1, 2)
+        layout.addWidget(self.results_miller, row_num, 2, 1, 2)
         row_num += 1
 
-        layout.addWidget(self.advanced_options, row_num, 2)
+        layout.addWidget(self.advanced_options, row_num, 3)
         row_num += 1
 
-        layout.addWidget(self.generate_from_label, 1, 3)
-        layout.addWidget(self.generate_from_input, 2, 3)
-        layout.addWidget(self.generate_to_label, 3, 3)
-        layout.addWidget(self.generate_to_input, 4, 3)
-        layout.addWidget(self.insert_a_button, 5, 3, alignment=Qt.AlignBottom)
-        layout.addWidget(self.insert_a_input, 6, 3)
+        layout.addWidget(self.generate_from_label, 1, 4)
+        layout.addWidget(self.generate_from_input, 2, 4)
+        layout.addWidget(self.generate_to_label, 3, 4)
+        layout.addWidget(self.generate_to_input, 4, 4)
+        layout.addWidget(self.insert_a_button, 5, 4, alignment=Qt.AlignBottom)
+        layout.addWidget(self.insert_a_input, 6, 4)
 
 
         widget = QWidget()
@@ -171,8 +179,8 @@ class MainWindow(QMainWindow):
 
     def generate_number(self):
 
-        f = self.generate_from_input.text()
-        t = self.generate_to_input.text()
+        f = int(self.generate_from_input.text())
+        t = int(self.generate_to_input.text())
 
         if f == "":
             self.generate_from_input.setText("1")
@@ -180,14 +188,23 @@ class MainWindow(QMainWindow):
         if t == "":
             self.generate_to_input.setText("1000000")
 
-        if not f < t:
+        if f >= t:
             self.generate_from_input.setText("1")
             self.generate_to_input.setText("1000000")
+            f = 1
+            t = 1000000
 
 
-        num = random.randint(int(self.generate_from_input.text()), int(self.generate_to_input.text()))
+        num = random.randint(f, t)
+
+
         if num % 2 == 0:
             num += 1
+            if num > t:
+                num -= 2
+
+
+
 
         self.number_input.setText(str(num))
         return num

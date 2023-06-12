@@ -135,7 +135,8 @@ def solovay_strassen(p, iterations, show_details: bool, a0 = -1):
         txt = txt + f"Liczba jest pierwsza\n\n"
     return True, txt
 
-w = solovay_strassen(9, 1, True)
-print(w[0])
-print(w[1])
+if __name__ == "__main__":
+    w = solovay_strassen(9, 1, True)
+    print(w[0])
+    print(w[1])
 

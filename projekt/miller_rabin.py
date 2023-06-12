@@ -105,16 +105,19 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
 
 #19999
 
-n = 9
-k = 4
+if __name__ == "__main__":
 
-print(f"n = {n}")
-result = miller(n, k, True, 5)
 
-if result[0]:
-    print("prime")
-else:
-    print("composite")
+    n = 9
+    k = 4
 
-print(result[1])
+    print(f"n = {n}")
+    result = miller(n, k, True, 5)
+
+    if result[0]:
+        print("prime")
+    else:
+        print("composite")
+
+    print(result[1])
 
