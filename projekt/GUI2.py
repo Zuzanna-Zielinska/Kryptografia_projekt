@@ -179,14 +179,19 @@ class MainWindow(QMainWindow):
 
     def generate_number(self):
 
-        f = int(self.generate_from_input.text())
-        t = int(self.generate_to_input.text())
+        f = self.generate_from_input.text()
+        t = self.generate_to_input.text()
 
         if f == "":
             self.generate_from_input.setText("1")
+            f = "1"
 
         if t == "":
             self.generate_to_input.setText("1000000")
+            t = "1000000"
+
+        f = int(f)
+        t = int(t)
 
         if f >= t:
             self.generate_from_input.setText("1")
@@ -197,14 +202,10 @@ class MainWindow(QMainWindow):
 
         num = random.randint(f, t)
 
-
         if num % 2 == 0:
             num += 1
             if num > t:
                 num -= 2
-
-
-
 
         self.number_input.setText(str(num))
         return num
@@ -213,37 +214,56 @@ class MainWindow(QMainWindow):
 
         # start = time.time()
 
-        if self.number_input.text() == "":
+        n_number_txt = self.number_input.text()
+
+        if n_number_txt == "":
             self.number_input.setText(str(self.generate_number()))
-        if self.iteration_number_input.text() == "":
+        n_int = int(self.number_input.text())
+
+        if n_int < 0:
+            n_int = abs(n_int)
+            self.number_input.setText(str(n_int))
+
+        i_number_txt = self.iteration_number_input.text()
+        if i_number_txt == "":
             self.iteration_number_input.setText("4")
+            i_number_txt = 4
+        if int(i_number_txt) < 1:
+            self.iteration_number_input.setText("1")
 
         # print(f"------------\n{self.a}\n")
 
+        a_message = ""
         if self.insert_a_input.text() != "" and self.force_a:
             self.a = int(self.insert_a_input.text())
+            a_message = "1 < a < n-1\n\n"
 
 
-        result_miller_rabin = miller_rabin.miller(int(self.number_input.text()),
+        result_miller_rabin = miller_rabin.miller(n_int,
                                                   int(self.iteration_number_input.text()),
                                                   self.show_details,
                                                   self.a)
-        result_solovay_strassen = solovay_strassen.solovay_strassen(int(self.number_input.text()),
+        result_solovay_strassen = solovay_strassen.solovay_strassen(n_int,
                                                                     int(self.iteration_number_input.text()),
                                                                     self.show_details,
                                                                     self.a)
 
-
-        self.show_steps(result_miller_rabin[1], result_solovay_strassen[1])
-        self.show_result(result_miller_rabin[0], result_solovay_strassen[0])
+        if n_int == 0 or n_int == 1:
+            self.miller_steps.setText("")
+            self.solovay_steps.setText("")
+            self.results_miller.setText("Liczba nie jest ani pierwsza, ani złożona")
+            self.results_solovay.setText("Liczba nie jest ani pierwsza, ani złożona")
+        else:
+            self.show_steps(result_miller_rabin[1], result_solovay_strassen[1], a_message)
+            self.show_result(result_miller_rabin[0], result_solovay_strassen[0])
 
         # end = time.time()
         # print(f"Time: {end - start}")
 
-    def show_steps(self, steps_miller_rabin, steps_solovay_strassen):
+    def show_steps(self, steps_miller_rabin, steps_solovay_strassen, a_message = ""):
 
-        self.miller_steps.setText(steps_miller_rabin)
-        self.solovay_steps.setText(steps_solovay_strassen)
+        self.miller_steps.setText(a_message + steps_miller_rabin)
+        self.solovay_steps.setText(a_message + steps_solovay_strassen)
 
     def show_result(self, result_miller_rabin, result_solovay_strassen):
 

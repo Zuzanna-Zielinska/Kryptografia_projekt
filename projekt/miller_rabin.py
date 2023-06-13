@@ -35,8 +35,11 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
         return False, "Liczba jest parzysta."
 
     set_a0 = False
-    if type(a0) == int and a0 > 1 and a0 < n - 1:
+    if a0 > 1 and a0 < n - 1:
         set_a0 = True
+        # txt = txt + f"1 < a < n-1\n\n"
+
+
 
     n1 = n - 1
 

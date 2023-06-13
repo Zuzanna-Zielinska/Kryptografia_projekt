@@ -87,14 +87,17 @@ def solovay_strassen(p, iterations, show_details: bool, a0 = -1):
 
     txt = ""
 
-    if (p < 2):
-        return False, txt
+    if (p <= 3):
+        return True, txt
     if (p != 2 and p % 2 == 0):
         return False, "Liczba jest parzysta."
 
     set_a0 = False
-    if type(a0) == int and a0 > 1 and a0 < p - 1:
-        set_a0 = True, txt
+    if a0 > 1 and a0 < p - 1:
+        set_a0 = True
+        # txt = txt + f"1 < a < n-1\n\n"
+
+
 
     if show_details:
         txt = txt + f"J(a, n) - symbol Jakobiego\n\n"
