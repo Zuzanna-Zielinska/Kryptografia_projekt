@@ -1,4 +1,4 @@
-# Kryptografia_projekt
+# Testy pierwszości
 
 # uruchomienie z pliku wykonywalnego
 
