@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         # self.setGeometry(300, 300, 800, 550)
+
         self.setMinimumSize(800, 550)
         self.show_details = False
         self.a = -1
@@ -26,9 +27,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Testy pierwszeństwa")
 
         self.title_label = QLabel("Testy pierwszeństwa")
-        font = QFont()
-        font.setPointSize(16)
-        self.title_label.setFont(font)
         self.title_label.setAlignment(Qt.AlignCenter)  # Wyśrodkowanie tekstu
 
         self.number_label = QLabel("Liczba:")
@@ -101,7 +99,7 @@ class MainWindow(QMainWindow):
         self.insert_a_input.setValidator(self.int_validator)
         self.insert_a_input.setMaximumWidth(200)
 
-
+        self.set_app_style()
 
 
         row_num = 0
@@ -148,6 +146,94 @@ class MainWindow(QMainWindow):
         widget = QWidget()
         widget.setLayout(layout)
         self.setCentralWidget(widget)
+
+    def set_app_style(self):
+        self.backgroung_color = "#343132"
+        self.text_color = "#D8E2DC"
+        self.border_color = "#B3D6C6"
+        # self.border_color = "#D8E2DC"
+        self.button_color = "#B3D6C6"
+        self.button_text_color = "#343132"
+
+        # self.backgroung_color = "#343132"
+        # self.text_color = "#D8E2DC"
+        # self.border_color = "#60C799"
+        # # self.border_color = "#D8E2DC"
+        # self.button_color = "#60C799"
+        # self.button_text_color = "#343132"
+
+
+        # title_font = QFont("Times New Roman", 16)
+        # normal_font = QFont("Times New Roman", 10)
+        title_font = QFont("Aptos", 16)
+        normal_font = QFont("Aptos")
+        # title_font = QFont("Calibri", 16)
+        # normal_font = QFont("Calibri", 10)
+
+
+        #background-color
+        self.setStyleSheet(f"background-color: {self.backgroung_color};")
+
+
+        #text and buttons color
+        self.title_label.setStyleSheet(f"color: {self.text_color};")
+        self.number_label.setStyleSheet(f"color: {self.text_color};")
+        self.iteration_number_label.setStyleSheet(f"color: {self.text_color};")
+        self.solovay_label.setStyleSheet(f"color: {self.text_color};")
+        self.miller_label.setStyleSheet(f"color: {self.text_color};")
+        self.results_solovay.setStyleSheet(f"color: {self.text_color};")
+        self.results_miller.setStyleSheet(f"color: {self.text_color};")
+
+        self.generate_button.setStyleSheet(f"color: {self.button_text_color};background-color: {self.button_color};")
+        self.details_button.setStyleSheet(f"color: {self.button_text_color};background-color: {self.button_color};")
+        self.start_button.setStyleSheet(f"color: {self.button_text_color};background-color: {self.button_color};")
+        self.advanced_options.setStyleSheet(f"color: {self.button_text_color};background-color: {self.button_color};")
+        self.insert_a_button.setStyleSheet(f"color: {self.button_text_color};background-color: {self.button_color};")
+        # self.generate_button.setStyleSheet(f"color: {self.text_color};")
+        # self.details_button.setStyleSheet(f"color: {self.text_color};")
+        # self.start_button.setStyleSheet(f"color: {self.text_color};")
+        # self.advanced_options.setStyleSheet(f"color: {self.text_color};")
+        # self.insert_a_button.setStyleSheet(f"color: {self.text_color};")
+
+        self.solovay_steps.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+        self.miller_steps.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+
+        self.number_input.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+        self.iteration_number_input.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+
+        self.generate_from_label.setStyleSheet(f"color: {self.text_color};")
+        self.generate_from_input.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+        self.generate_to_label.setStyleSheet(f"color: {self.text_color};")
+        self.generate_to_input.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+        self.insert_a_input.setStyleSheet(f"color: {self.text_color}; border: 1px solid {self.border_color};")
+
+        #font
+        self.title_label.setFont(title_font)
+        self.number_label.setFont(normal_font)
+        self.iteration_number_label.setFont(normal_font)
+        self.solovay_label.setFont(normal_font)
+        self.miller_label.setFont(normal_font)
+        self.results_solovay.setFont(normal_font)
+        self.results_miller.setFont(normal_font)
+
+        self.number_input.setFont(normal_font)
+        self.iteration_number_input.setFont(normal_font)
+        self.solovay_steps.setFont(normal_font)
+        self.miller_steps.setFont(normal_font)
+        self.generate_from_label.setFont(normal_font)
+        self.generate_from_input.setFont(normal_font)
+        self.generate_to_label.setFont(normal_font)
+        self.generate_to_input.setFont(normal_font)
+        self.insert_a_input.setFont(normal_font)
+
+        self.generate_button.setFont(normal_font)
+        self.details_button.setFont(normal_font)
+        self.start_button.setFont(normal_font)
+        self.advanced_options.setFont(normal_font)
+        self.insert_a_button.setFont(normal_font)
+
+
+
 
     def set_details(self):
 
@@ -283,6 +369,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app.setStyle('Fusion')
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
