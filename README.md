@@ -1,24 +1,9 @@
 # Testy pierwszości
 
-Repozytorjum skrypty prostej aplikacji, której zadaniem jest sprawdzenie, czy liczba jest pierwsza za pomocą algorytmów Solovaya-Strasena oraz Milera-Rabina. Została zrobiona na potrzeby studiów Automatyki i Robotyki w Akademi Górniczo Hutniczej.
+Repozytorjum skrypty prostej aplikacji, której zadaniem jest sprawdzenie, czy liczba jest pierwsza za pomocą algorytmów Solovaya-Strasena oraz Milera-Rabina. Została zrobiona na potrzeby studiów Automatyki i Robotyki w Akademi Górniczo Hutniczej. Interfejs zastał zrobiony za pomocą biblioteki PyQt5.
 <p align="center">
 <img src=".\zdjęcia\gui1.JPG" alt="a1" width="600" height="auto">
 </p>
-
-# uruchomienie z pliku wykonywalnego
-
-plik wykonywalny został utworzony na dwa sposoby - jako jeden plik oraz jako folder, w każdym przypadku należy dwukrotnie kliknąć na plik GUI2.exe, by uruchomić aplikację
-
-# uruchomienie z plików źródłowych
-By urochomić projekt należy zainstalować python3 oraz wykonać komendę
-
-python GUI2.py
-
-wymagane paczki
-
-pyqt5 - instalacja komendą
-
-pip install PyQt5
 
 # Jak korzystać z aplikacji
 Do sprawdzenia pierwszości liczby należy wisać ją w pole "Liczba". Można ją także wygenerować losowo z predefiniowanego zakresu. Można także wybrać liczbę iteracji, którą będzie wykonywał algorytm. Od niej zależy prawdopodobieństwo poprawności wyniku. Po kliknięciu w przycisk "Rozpocznij test" aplikacja testuje pierwszość algorytmami Solovaya-Strasena oraz Milera-Rabina.
