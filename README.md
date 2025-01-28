@@ -32,8 +32,8 @@ W osobnych oknach pojawiają się rezultaty obu algorytmów:
 Prawdopodobieństwo pierwszeństwa danej liczby jest podane pod każdym oknem.
 
 <p float="center">
-  <img src=".\zdjęcia\gui2.JPG" alt="a2" width="500" height="auto">
-  <img src=".\zdjęcia\gui3.JPG" alt="a3" width="500" height="auto">
+  <img src=".\zdjęcia\gui2.JPG" alt="a2" width="450" height="auto">
+  <img src=".\zdjęcia\gui3.JPG" alt="a3" width="450" height="auto">
 </p>
 
 Po wybraniu opcji pokaż szczegóły pokazują się też istotne kroki algorytmów oraz ich wyniki. Jeśli <i>x</i> lub <i>y</i> są równe 1 lub n-1, to liczba jest pierwsza. W przeciwnym razie jest złożona.
