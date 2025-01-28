@@ -39,8 +39,8 @@ Prawdopodobieństwo pierwszeństwa danej liczby jest podane pod każdym oknem.
 Po wybraniu opcji pokaż szczegóły pokazują się też istotne kroki algorytmów oraz ich wyniki. Jeśli <i>x</i> lub <i>y</i> są równe 1 lub n-1, to liczba jest pierwsza. W przeciwnym razie jest złożona.
 
 <p float="center">
-  <img src=".\zdjęcia\gui5.JPG" alt="a5" width="500" height="auto">
-  <img src=".\zdjęcia\gui4.JPG" alt="a4" width="500" height="auto">
+  <img src=".\zdjęcia\gui5.JPG" alt="a5" width="400" height="auto">
+  <img src=".\zdjęcia\gui4.JPG" alt="a4" width="400" height="auto">
 </p>
 
 Po kliknięciu w przycisk "zaawansowane opcje" w prawym dolnym rogu można zmienić zakres losowanych liczb a także wymusić pierwszego śwaidka złożoności <i>a</i>, który zostanie wylosowany. Musi być z podanego zakresu.
