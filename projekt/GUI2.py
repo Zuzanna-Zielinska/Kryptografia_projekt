@@ -48,9 +48,9 @@ class MainWindow(QMainWindow):
         self.start_button = QPushButton("Start test")
         self.start_button.clicked.connect(self.test_number)
 
-        self.solovay_label = QLabel("Test Solovaya-Strassena")
+        self.solovay_label = QLabel("Solovay-Strassen test")
         self.solovay_label.setAlignment(Qt.AlignCenter)
-        self.miller_label = QLabel("Test Millera-Rabina")
+        self.miller_label = QLabel("Miller-Rabin test")
         self.miller_label.setAlignment(Qt.AlignCenter)
 
         self.solovay_steps = QTextEdit()
@@ -165,8 +165,8 @@ class MainWindow(QMainWindow):
 
         # title_font = QFont("Times New Roman", 16)
         # normal_font = QFont("Times New Roman", 10)
-        title_font = QFont("Aptos", 16)
-        normal_font = QFont("Aptos")
+        title_font = QFont("Aptos", 20)
+        normal_font = QFont("Aptos", 10)
         # title_font = QFont("Calibri", 16)
         # normal_font = QFont("Calibri", 10)
 
@@ -354,16 +354,16 @@ class MainWindow(QMainWindow):
     def show_result(self, result_miller_rabin, result_solovay_strassen):
 
         if result_miller_rabin:
-            self.results_miller.setText(f"Liczba jest pierwsza z minimalnym \nprawdopodobieństwem "
+            self.results_miller.setText(f"The number is prime with a minimum \nprobability of "
                                         f"{1 - 4**(-int(self.iteration_number_input.text()))}")
         else:
-            self.results_miller.setText("Liczba jest złożona")
+            self.results_miller.setText("Number is composite")
 
         if result_solovay_strassen:
-            self.results_solovay.setText(f"Liczba jest pierwsza z minimalnym \nprawdopodobieństwem "
+            self.results_solovay.setText(f"The number is prime with a minimum \nprobability of "
                                          f"{1 - 2**(-int(self.iteration_number_input.text()))}")
         else:
-            self.results_solovay.setText("Liczba jest złożona")
+            self.results_solovay.setText("Number is composite")
 
 
 
