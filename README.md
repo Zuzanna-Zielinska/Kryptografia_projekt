@@ -9,8 +9,11 @@ The repository contains scripts for a simple application whose purpose is to che
 To test whether a number is prime, enter it into the "Number" field. It can also be generated randomly from a predefined range. Below, there is an option to enter the number of iterations that the algorithm will perform. This value affects the probability of the result being correct. After clicking the "Start Test" button, the application checks primality using the Solovay–Strassen and Miller–Rabin algorithms. After clicking the "Show Details" button, the important parts of each algorithm will be displayed, but the tests must be run again to generate the results.
 
 The results of both algorithms are displayed in separate windows:
+
 •	iteration number k, 
+
 •	randomly generated numbers that are potential Euler witnesses a, 
+
 •	and the algorithm result. 
 
 The probability that the tested number is prime is displayed below each window.
