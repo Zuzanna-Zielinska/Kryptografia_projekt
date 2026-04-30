@@ -1,34 +1,33 @@
-# Testy pierwszości
+# Primality Tests
 
-Repozytorjum skrypty prostej aplikacji, której zadaniem jest sprawdzenie, czy liczba jest pierwsza za pomocą algorytmów Solovaya-Strasena oraz Milera-Rabina. Została zrobiona na potrzeby studiów Automatyki i Robotyki w Akademi Górniczo Hutniczej. Interfejs zastał zrobiony za pomocą biblioteki PyQt5.
+The repository contains scripts for a simple application whose purpose is to check whether a number is prime using the Solovay–Strassen and Miller–Rabin algorithms. It was created for the purposes of Automation and Robotics studies at the AGH University of Science and Technology. The interface was developed using the PyQt5 library.
 <p align="center">
 <img src=".\zdjęcia\gui1.JPG" alt="a1" width="600" height="auto">
 </p>
 
-# Jak korzystać z aplikacji
-Do sprawdzenia pierwszości liczby należy wisać ją w pole "Liczba". Można ją także wygenerować losowo z predefiniowanego zakresu. Można także wybrać liczbę iteracji, którą będzie wykonywał algorytm. Od niej zależy prawdopodobieństwo poprawności wyniku. Po kliknięciu w przycisk "Rozpocznij test" aplikacja testuje pierwszość algorytmami Solovaya-Strasena oraz Milera-Rabina.
-Po kliknięciu w przycisk "Pokaż szczegóły" pokażą się istotnie fragmenty każdego algorytmu, ale trzeba wygenerować odpowiedzi jeszcze raz.
+## How to Use the Application
+To test whether a number is prime, enter it into the "Number" field. It can also be generated randomly from a predefined range. Below, there is an option to enter the number of iterations that the algorithm will perform. This value affects the probability of the result being correct. After clicking the "Start Test" button, the application checks primality using the Solovay–Strassen and Miller–Rabin algorithms. After clicking the "Show Details" button, the important parts of each algorithm will be displayed, but the tests must be run again to generate the results.
 
-W osobnych oknach pojawiają się rezultaty obu algorytmów: 
- - numer iteracji <i>k</i>,
- - wylosowane liczby, które są potencjalnymi świadkami złożoności <i>a</i>,
- - oraz wynik algorytmu.
+The results of both algorithms are displayed in separate windows:
+•	iteration number k, 
+•	randomly generated numbers that are potential Euler witnesses a, 
+•	and the algorithm result. 
 
-Prawdopodobieństwo pierwszeństwa danej liczby jest podane pod każdym oknem.
+The probability that the tested number is prime is displayed below each window.
 
 <p float="center">
   <img src=".\zdjęcia\gui2.JPG" alt="a2" width="400" height="auto">
   <img src=".\zdjęcia\gui3.JPG" alt="a3" width="400" height="auto">
 </p>
 
-Po wybraniu opcji pokaż szczegóły pokazują się też istotne kroki algorytmów oraz ich wyniki. Jeśli <i>x</i> lub <i>y</i> są równe 1 lub n-1, to liczba jest pierwsza. W przeciwnym razie jest złożona.
+After selecting the "Show Details" option, the important steps of the algorithms and their results are also displayed. If x or y are equal to 1 or n−1, then the number is prime. Otherwise, it is composite.
 
 <p float="center">
   <img src=".\zdjęcia\gui5.JPG" alt="a5" width="400" height="auto">
   <img src=".\zdjęcia\gui4.JPG" alt="a4" width="400" height="auto">
 </p>
 
-Po kliknięciu w przycisk "zaawansowane opcje" w prawym dolnym rogu można zmienić zakres losowanych liczb a także wymusić pierwszego śwaidka złożoności <i>a</i>, który zostanie wylosowany. Musi być z podanego zakresu.
+After clicking the "Advanced Options" button in the bottom-right corner, you can change the range of randomly generated numbers and also force the first witness a to be selected. It must belong to the specified range.
 
 <p align="center">
 <img src=".\zdjęcia\gui6.JPG" alt="a6" width="600" height="auto">
