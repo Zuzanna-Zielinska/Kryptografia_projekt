@@ -24,28 +24,28 @@ class MainWindow(QMainWindow):
         self.int_validator = QIntValidator()
 
 
-        self.setWindowTitle("Testy pierwszeństwa")
+        self.setWindowTitle("Primality Tests")
 
-        self.title_label = QLabel("Testy pierwszeństwa")
+        self.title_label = QLabel("Primality Tests")
         self.title_label.setAlignment(Qt.AlignCenter)  # Wyśrodkowanie tekstu
 
-        self.number_label = QLabel("Liczba:")
+        self.number_label = QLabel("Number:")
         self.number_input = QLineEdit()
         self.number_input.setValidator(self.int_validator)
 
-        self.generate_button = QPushButton("Wygeneruj liczbę")
+        self.generate_button = QPushButton("Generate number")
         self.generate_button.clicked.connect(self.generate_number)
 
-        self.iteration_number_label = QLabel("Liczba iteracji:")
+        self.iteration_number_label = QLabel("Iteration number:")
         self.iteration_number_input = QLineEdit()
         self.iteration_number_input.setText("4")
         self.iteration_number_input.setValidator(self.int_validator)
 
-        self.details_button = QPushButton("Pokaż szczegółowe rozwiązanie")
+        self.details_button = QPushButton("Show details")
         self.details_button.setCheckable(True)
         self.details_button.clicked.connect(self.set_details)
 
-        self.start_button = QPushButton("Rozpocznij test")
+        self.start_button = QPushButton("Start test")
         self.start_button.clicked.connect(self.test_number)
 
         self.solovay_label = QLabel("Test Solovaya-Strassena")
@@ -68,11 +68,11 @@ class MainWindow(QMainWindow):
         self.results_miller = QLabel()
         self.results_miller.setAlignment(Qt.AlignCenter)  # Wyśrodkowanie tekstu
 
-        self.advanced_options = QPushButton("Zaawansowane opcje")
+        self.advanced_options = QPushButton("Advanced options")
         self.advanced_options.setCheckable(True)
         self.advanced_options.clicked.connect(self.set_advanced_options)
 
-        self.generate_from_label = QLabel("Wygeneruj liczbę  od:")
+        self.generate_from_label = QLabel("Generate number from:")
         self.generate_from_label.setVisible(False)
         self.generate_from_input = QLineEdit()
         self.generate_from_input.setVisible(False)
@@ -80,7 +80,7 @@ class MainWindow(QMainWindow):
         self.generate_from_input.setValidator(self.int_validator)
         self.generate_from_input.setMaximumWidth(200)
 
-        self.generate_to_label = QLabel("Wygeneruj liczbę do:")
+        self.generate_to_label = QLabel("Generate number to:")
         self.generate_to_label.setVisible(False)
         self.generate_to_input = QLineEdit()
         self.generate_to_input.setVisible(False)
@@ -88,7 +88,7 @@ class MainWindow(QMainWindow):
         self.generate_to_input.setValidator(self.int_validator)
         self.generate_to_input.setMaximumWidth(200)
 
-        self.insert_a_button = QPushButton("Wymuś pierwsze a:")
+        self.insert_a_button = QPushButton("Force first a:")
         self.insert_a_button.setVisible(False)
         self.insert_a_button.setCheckable(True)
         # self.insert_a_button.setAlignment(Qt.AlignCenter)

@@ -32,7 +32,7 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
         return True, txt
 
     if n % 2 == 0:
-        return False, "Liczba jest parzysta."
+        return False, "Number is even."
 
     set_a0 = False
     if a0 > 1 and a0 < n - 1:
@@ -87,22 +87,22 @@ def miller(n: int, k:int, show_details: bool, a0 = -1):
                     txt = txt + f"y = {y}\n\n"
                 # print(f"y = {y}\n")
             if show_details:
-                txt = txt + f"y = {y} oraz x = {x}\n"
+                txt = txt + f"y = {y} and x = {x}\n"
             # print(f"y = {y} and x = {x}")
 
             if y == 1 and x != 1 and x != n - 1:
                 if show_details:
-                    txt = txt + f"\n{y} = 1 oraz {x} != 1 oraz {x} != {n-1}\n"
-                txt = txt + f"Liczba jest złożona\n"
+                    txt = txt + f"\n{y} = 1 and {x} != 1 and {x} != {n-1}\n"
+                txt = txt + f"Number is composite\n"
                 return False, txt
             x = y
         if y != 1:
             if show_details:
                 txt = txt + f"\n{y} != 1 \n"
-            txt = txt + f"Liczba jest złożona\n"
+            txt = txt + f"Number is composite\n"
             return False, txt
 
-        txt = txt + f"Liczba jest pierwsza\n\n"
+        txt = txt + f"Number is prime\n\n"
     return True, txt
 
 

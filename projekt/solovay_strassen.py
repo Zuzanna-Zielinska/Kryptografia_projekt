@@ -90,7 +90,7 @@ def solovay_strassen(p, iterations, show_details: bool, a0 = -1):
     if (p <= 3):
         return True, txt
     if (p != 2 and p % 2 == 0):
-        return False, "Liczba jest parzysta."
+        return False, "Number is even."
 
     set_a0 = False
     if a0 > 1 and a0 < p - 1:
@@ -100,7 +100,7 @@ def solovay_strassen(p, iterations, show_details: bool, a0 = -1):
 
 
     if show_details:
-        txt = txt + f"J(a, n) - symbol Jakobiego\n\n"
+        txt = txt + f"J(a, n) - Jacobi symbol\n\n"
 
     for i in range(iterations):
 
@@ -132,10 +132,10 @@ def solovay_strassen(p, iterations, show_details: bool, a0 = -1):
                 # print(f"Found composite number on iter {i}")
             if show_details:
                 txt = txt + f"\n{jacobian} = 0 lub {jacobian} = {a}^({p - 1} / {2}) % {p}\n"
-            txt = txt + f"Liczba jest złożona\n"
+            txt = txt + f"Number is composite\n"
             return False, txt
 
-        txt = txt + f"Liczba jest pierwsza\n\n"
+        txt = txt + f"Number is prime\n\n"
     return True, txt
 
 if __name__ == "__main__":
